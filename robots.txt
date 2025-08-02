@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tianaq26.github.io/Dragones-De-Valkar.1.0/sitemap.xml
