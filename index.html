@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mythic Game - Dragones de Valkar</title>
+  <link rel="icon" href="imgs/logo.png" type="image/png">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Fuentes medievales -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Uncial+Antiqua&display=swap"
+    rel="stylesheet" />
+  <!-- FontAwesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <canvas class="particles"></canvas>
+
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#" onclick="showSection('principal'); playSound()">
+        <img src="imgs/logo1.jpg" alt="" id="logo-img" />
+        Mythic Games
+      </a>
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#"
+              onclick="showSection('principal'); playSound()">Principal</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('media'); playSound()">Imágenes y
+              Gameplays</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('historia'); playSound()">Historia</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('creditos'); playSound()">Créditos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PRINCIPAL -->
+  <header id="principal" class="text-center py-5 active">
+    <h1 class="medieval-title">Dragones de Valkar</h1>
+    <p class="px-3">
+      Embárcate en una aventura épica en un mundo de dragones, magia y batallas legendarias.
+    </p>
+    <a class="btn btn-medieval mt-3"
+      href="https://drive.google.com/uc?export=download&id=1DiUoz2bltVHcAWjQrSyvbbsI9aUDko__" download>Probar Beta</a>
+
+    <div class="container feature-list text-start mt-5">
+      <h3 class="medieval-title mb-3">Características del Juego</h3>
+      <ul>
+        <li>Disponible para PC, App Store y Play Store.</li>
+        <li>Mundo abierto con libertad de exploración.</li>
+        <li>Combates RPG con habilidades de dragón.</li>
+        <li>Ambiente de fantasía medieval completamente inmersivo.</li>
+        <li>Diseñado para correr en dispositivos modestos, sin necesidad de una super PC ni consola costosa.</li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- CARRUSEL PRINCIPAL -->
+  <section id="carousel-section" class="container mb-5 active">
+    <div id="gameCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="imgs/game6to.png" class="d-block w-100" alt="Slide 1" />
+        </div>
+        <div class="carousel-item">
+          <img src="imgs/game5top.png" class="d-block w-100" alt="Slide 2" />
+        </div>
+        <div class="carousel-item">
+          <img src="imgs/game13top.png" class="d-block w-100" alt="Slide 3" />
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#gameCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#gameCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- MEDIA (IMÁGENES Y GAMEPLAYS) -->
+  <section id="media" class="container text-center mb-5">
+    <h2 class="medieval-title mb-4">Imágenes y Gameplays</h2>
+    <div class="row g-4 justify-content-center">
+      <!-- 10 imágenes con marcos medievales -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dragon-card">
+          <img src="imgs/game1.png" alt="Imagen 1" />
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dragon-card">
+          <img src="imgs/game2.png" alt="Imagen 2" />
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dragon-card">
+          <img src="imgs/game3.png" alt="Imagen 3" />
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dragon-card">
+          <img src="imgs/game4.png" alt="Imagen 4" />
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dragon-card">
+          <img src="imgs/game8.png" alt="Imagen 5" />
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dragon-card">
+          <img src="imgs/game11.png" alt="Imagen 6" />
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dragon-card">
+          <img src="imgs/game12.png" alt="Imagen 7" />
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dragon-card">
+          <img src="imgs/game15.png" alt="Imagen 8" />
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dragon-card">
+          <img src="imgs/game13top.png" alt="Imagen 9" />
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dragon-card">
+          <img src="imgs/game8top.png" alt="Imagen 10" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORIA -->
+  <section id="historia" class="container mb-5">
+    <h2 class="medieval-title mb-3 text-center">Historia</h2>
+    <label id="historia-text" rows="8">Valkar es una isla perdida en el medio del mar un conjunto de rocas que se
+      mantiene de pie ante las adversidades en otros lugares
+      tienen animales magicos dinosaurios pero aqui tenemos dragones y
+      son muy amigables y debemos de tratar de protegerlos para convivir en esta maravillosa isla, en este increible
+      mundo encontraras todo tipo de aventuras misterios por explorar misiones y un increible mundo abierto ademas de
+      que puedes elegir tu propia historia no hay nada que te detenga de ser lo que tu quieras ser</label>
+
+    <!-- Submenú para libro de dragones -->
+    <div class="mt-4 text-center">
+      <button class="btn btn-medieval" data-bs-toggle="modal" data-bs-target="#libroDragonesModal">Abrir Libro de
+        Dragones</button>
+    </div>
+
+    <!-- Modal Libro de Dragones -->
+    <div class="modal fade" id="libroDragonesModal" tabindex="-1" aria-labelledby="libroDragonesLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="libroDragonesLabel">Libro de Dragones</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+              aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="dragon-card">
+                  <img src="imgs/dragon1.png" alt="Dragón Fuego" />
+                  <div class="dragon-name">Volcanis</div>
+                  <p>Volcanis es un dragon que habita en la isla ashika este dragon escupe lava es gigantesco y ademas
+                    lanza viento que destroza todo a su paso.</p>
+                </div>
+                <div class="dragon-card">
+                  <img src="imgs/dragon2.png" alt="Dragón Fuego" />
+                  <div class="dragon-name">Lyas</div>
+                  <p>Lyas es un dragon de naturaleza, es muy docil y es muy bueno con las plantas muy fuerte ademas con
+                    sus ataques de naturaleza
+                    , habita principalmente en la isla lisana</p>
+                </div>
+                <div class="dragon-card">
+                  <img src="imgs/dragon3.png" alt="Dragón Fuego" />
+                  <div class="dragon-name">Nereus</div>
+                  <p>Nereus es un dragon de agua que puede moverse por el mar, no puede volar como la mayoria pero puede
+                    moverse mas rapido por el agua,
+                    habita en todo el mar,pricipalmente en la isla salias.</p>
+                </div>
+                <div class="dragon-card">
+                  <img src="imgs/dragon4.png" alt="Dragón Fuego" />
+                  <div class="dragon-name">Leo</div>
+                  <p>leo es un dragon robusto y es perfecto para destruir cosas ya que tiene una cola con una piedra muy
+                    poderoso
+                    es muy util para conseguir recursos habita principalmente en la isla rocastra.</p>
+                </div>
+              </div>
+              <!-- Puedes añadir más dragones aquí -->
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-medieval" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRÉDITOS -->
+  <section id="creditos" class="container text-center mb-5">
+    <h2 class="medieval-title mb-3">Créditos</h2>
+    <p>Desarrollado por Sebastian Aguilar.</p>
+    <p>encargada de marketing Monica Morales Gonzales.</p>
+    <p>Secretario Keneth barquero Cubillo</p>
+    <a href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=Kv6hD1vVZUaV51OlaSfYM9OMAo64_tlMnvQJeB1EG01UQlcwNUxWU0dCRjVFMVNMQ1pEWjNPNTMyMC4u&origin=lprLink&route=shorturl"
+      target="_blank" rel="noopener">Contribuye con el desarrollo de Dragones de Valkar danos tus comentarios en esta
+      encuesta</a>
+    <h2 class="medieval-title mb-3 text-center">Nuestra Historia</h2>
+    <label id="historia-text" rows="8">El juego fue Desarrollado con el fin de participar en la competicion expotecnica
+      pero mas que eso para llegar a ser un juego competitvo nuestra inspiracion son todas las personas que a corta edad
+      y solos contra el mundo lograron cosas increibles y queremos lo mismo somos un equipo de desarrollo pequeño pero
+      esperamos poder llegar a cosas grandes el proyecto fue empezado el 15 de noviembre de 2024 y se llevan mas de
+      12mil lineas de codigo ademas de muchas horas de trabajo, todo esto hecho por nuestro equipo de trabajo que como
+      unica educacion tiene python basico de consola lo cual no es para nada lo que se necesita para hacer un
+      videojuego, se requiere aprender una infinifad de tecnologias que nuestro equipo aprendio por su cuenta para poder
+      desarrollar este juego todo con el fin de dar inspiracion a otras personas para que se empeñen en sus proyectos
+      personales asi como muchas personas nos inspiraron a nostros, esta es nuestra Historia y apenas comienza. </label>
+  </section>
+
+  <!-- Botón volver arriba -->
+  <button id="backToTop" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+
+  <footer class="text-center mt-5">
+    <p>© 2025 Mythic Game. Todos los derechos reservados.</p>
+    <a href="https://www.tiktok.com/@mythic.game" target="_blank" rel="noopener">Página De TikTok</a>
+    <a href="https://www.instagram.com/mythic_games.mg/" target="_blank" rel="noopener">Instagram</a>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Sonido medieval al cambiar sección -->
+  <audio id="clickSound" src="https://freesound.org/data/previews/250/250629_4486188-lq.mp3" preload="auto"></audio>
+
+  <script>
+    // Función para mostrar la sección seleccionada
+    function showSection(id) {
+      // Ocultar todas las secciones y headers
+      const sections = document.querySelectorAll('section, header');
+      sections.forEach(s => {
+        s.classList.remove('active');
+      });
+
+      // Activar la sección solicitada
+      const target = document.getElementById(id);
+      if (target) {
+        target.classList.add('active');
+      }
+
+      // Actualizar el estado activo en el navbar
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.textContent.trim().toLowerCase() === id) {
+          link.classList.add('active');
+        }
+      });
+
+      // Cerrar menú en móvil si está abierto
+      const navbarCollapse = document.getElementById('navbarNav');
+      if (navbarCollapse.classList.contains('show')) {
+        new bootstrap.Collapse(navbarCollapse).hide();
+        document.querySelector('.navbar-toggler').classList.add('collapsed');
+      }
+    }
+
+    // Sonido al cambiar sección
+    function playSound() {
+      const sound = document.getElementById('');
+      if (sound) {
+        sound.currentTime = 0;
+        sound.play();
+      }
+    }
+
+    // Botón volver arriba
+    const backToTopBtn = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.style.display = 'block';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Animar menú hamburguesa con toggle clases
+    const toggler = document.querySelector('.navbar-toggler');
+    toggler.addEventListener('click', () => {
+      toggler.classList.toggle('collapsed');
+    });
+
+    // Partículas decorativas tipo magia
+    const canvas = document.querySelector('.particles');
+    const ctx = canvas.getContext('2d');
+    let particlesArray = [];
+    let w, h;
+
+    function initCanvas() {
+      w = window.innerWidth;
+      h = window.innerHeight;
+      canvas.width = w;
+      canvas.height = h;
+    }
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * w;
+        this.y = Math.random() * h;
+        this.size = Math.random() * 3 + 1;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.alpha = Math.random();
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > w) this.speedX *= -1;
+        if (this.y < 0 || this.y > h) this.speedY *= -1;
+      }
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.fillStyle = '#f1c27d';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    function initParticles() {
+      particlesArray = [];
+      for (let i = 0; i < 100; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, w, h);
+      particlesArray.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+
+    window.addEventListener('resize', () => {
+      initCanvas();
+      initParticles();
+    });
+
+    // Inicializar todo
+    initCanvas();
+    initParticles();
+    animateParticles();
+
+    // Al cargar, mostrar sección principal
+    document.addEventListener('DOMContentLoaded', () => {
+      showSection('principal');
+    });
+
+    // Formulario contacto: prevenir submit real (para ejemplo)
+    document.getElementById('contactForm').addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Gracias por tu mensaje. Pronto te responderemos.');
+      e.target.reset();
+    });
+  </script>
+</body>
+
+</html>
