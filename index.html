@@ -5,30 +5,36 @@
   <meta name="google-site-verification" content="26uT5O9fHgIywnMRwaJhDt1TDYL-JaKxjwkAxQlko0U" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dragones de Valkar</title>
-  <meta name="description" content="Explora el mundo de Dragones de Valkar, un juego de aventuras y dragones desarrollado en Unity.">
-  <meta name="keywords" content="juego de dragones, Unity, Valkar, RPG, aventuras">
+  <title>Eteria — Mundo de Dragones</title>
+  <meta name="description"
+    content="Eteria es un mundo de fantasía donde dragones y humanos conviven. Embárcate en una aventura épica desarrollada en Unity.">
+  <meta name="keywords" content="Eteria, juego de dragones, Unity, RPG, aventuras, mundo abierto, fantasía medieval">
   <link rel="icon" href="imgs/logo.png" type="image/png">
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Fuentes medievales -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Uncial+Antiqua&display=swap"
+  <!-- Fuentes -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
     rel="stylesheet" />
-  <!-- FontAwesome para iconos -->
+  <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
-  <canvas class="particles"></canvas>
+  <canvas class="particles" id="particleCanvas"></canvas>
 
-  <nav class="navbar navbar-expand-lg navbar-dark">
+  <!-- CURSOR PERSONALIZADO -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="#" onclick="showSection('principal'); playSound()">
-        <img src="imgs/logo1.jpg" alt="" id="logo-img" />
-        Dragones de Valkar
+      <a class="navbar-brand" href="#" onclick="showSection('inicio'); return false;">
+        <img src="imgs/logo1.jpg" alt="Eteria Logo" id="logo-img" />
+        <span class="brand-text">Eteria</span>
       </a>
       <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,372 +42,936 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#"
-              onclick="showSection('principal'); playSound()">Principal</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('media'); playSound()">Imágenes y
-              Gameplays</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('historia'); playSound()">Historia</a>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('creditos'); playSound()">Créditos</a>
-          </li>
+          <li class="nav-item"><a class="nav-link active" href="#" onclick="showSection('inicio'); return false;"><i
+                class="fas fa-home nav-icon"></i>Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('mundo'); return false;"><i
+                class="fas fa-globe nav-icon"></i>El Mundo</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('personajes'); return false;"><i
+                class="fas fa-user nav-icon"></i>Personajes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('dragones'); return false;"><i
+                class="fas fa-dragon nav-icon"></i>Dragones</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('historia'); return false;"><i
+                class="fas fa-book-open nav-icon"></i>Historia</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('galeria'); return false;"><i
+                class="fas fa-images nav-icon"></i>Galería</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('creditos'); return false;"><i
+                class="fas fa-star nav-icon"></i>Créditos</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- PRINCIPAL -->
-  <header id="principal" class="text-center py-5 active">
-    <h1 class="medieval-title">Dragones de Valkar</h1>
-    <p class="px-3">
-      Embárcate en una aventura épica en un mundo de dragones, magia y batallas legendarias.
-    </p>
-    <a class="btn btn-medieval mt-3"
-      href="https://drive.google.com/uc?export=download&id=1UA3DSQfFFxGYNhDPKsEguJf7kkUTbz_n" download>Descarga la beta ahora!!!</a>
+  <!-- ===================== INICIO ===================== -->
+  <section id="inicio" class="page-section active">
 
-    <div class="container feature-list text-start mt-5">
-      <h3 class="medieval-title mb-3">Características del Juego</h3>
-      <ul>
-        <li>Disponible para PC y muy pronto en la Play Store y App Store</li>
-        <li>Mundo abierto con libertad de exploración.</li>
-        <li>Combates RPG con habilidades de dragón.</li>
-        <li>Ambiente de fantasía medieval completamente inmersivo.</li>
-        <li>Diseñado para correr en dispositivos modestos, sin necesidad de una super PC ni consola costosa.</li>
-      </ul>
-    </div>
-  </header>
-
-  <!-- CARRUSEL PRINCIPAL -->
-  <section id="carousel-section" class="container mb-5 active">
-    <div id="gameCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="imgs/game6to.png" class="d-block w-100" alt="Slide 1" />
-        </div>
-        <div class="carousel-item">
-          <img src="imgs/game5top.png" class="d-block w-100" alt="Slide 2" />
-        </div>
-        <div class="carousel-item">
-          <img src="imgs/game13top.png" class="d-block w-100" alt="Slide 3" />
-        </div>
+    <!-- HERO -->
+    <div class="hero-section">
+      <div class="hero-bg">
+        <img src="imgs/sabrinafondo1.png" alt="Eteria" class="hero-bg-img" id="heroBg" />
+        <div class="hero-overlay"></div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#gameCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#gameCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
-    </div>
-  </section>
-
-  <!-- MEDIA (IMÁGENES Y GAMEPLAYS) -->
-  <section id="media" class="container text-center mb-5">
-    <h2 class="medieval-title mb-4">Imágenes y Gameplays</h2>
-    <div class="row g-4 justify-content-center">
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="dragon-card">
-          <img src="imgs/game1.png" alt="Imagen 1" />
+      <div class="hero-content">
+        <p class="hero-eyebrow">Bienvenido a</p>
+        <h1 class="hero-title">ETERIA</h1>
+        <p class="hero-subtitle">Un mundo donde dragones y humanos conviven en paz.<br>Tu aventura está a punto de
+          comenzar.</p>
+        <div class="hero-actions">
+          <a class="btn-eteria-primary"
+            href="https://drive.google.com/uc?export=download&id=1UA3DSQfFFxGYNhDPKsEguJf7kkUTbz_n" download>
+            <i class="fas fa-download"></i> Descargar Beta
+          </a>
+          <button class="btn-eteria-secondary" onclick="showSection('historia'); return false;">
+            <i class="fas fa-book-open"></i> Leer Historia
+          </button>
         </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="dragon-card">
-          <img src="imgs/game2.png" alt="Imagen 2" />
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="dragon-card">
-          <img src="imgs/game3.png" alt="Imagen 3" />
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="dragon-card">
-          <img src="imgs/game4.png" alt="Imagen 4" />
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="dragon-card">
-          <img src="imgs/game8.png" alt="Imagen 5" />
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="dragon-card">
-          <img src="imgs/game11.png" alt="Imagen 6" />
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="dragon-card">
-          <img src="imgs/game12.png" alt="Imagen 7" />
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="dragon-card">
-          <img src="imgs/game15.png" alt="Imagen 8" />
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="dragon-card">
-          <img src="imgs/game13top.png" alt="Imagen 9" />
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="dragon-card">
-          <img src="imgs/game8top.png" alt="Imagen 10" />
+        <div class="hero-scroll-hint">
+          <span>Explora</span>
+          <i class="fas fa-chevron-down"></i>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- HISTORIA -->
-  <section id="historia" class="container mb-5">
-    <h2 class="medieval-title mb-3 text-center">Historia</h2>
-    <label id="historia-text" rows="8">Valkar es una isla perdida en el medio del mar un conjunto de rocas que se
-      mantiene de pie ante las adversidades en otros lugares
-      tienen animales magicos dinosaurios pero aqui tenemos dragones y
-      son muy amigables y debemos de tratar de protegerlos para convivir en esta maravillosa isla, en este increible
-      mundo encontraras todo tipo de aventuras misterios por explorar misiones y un increible mundo abierto ademas de
-      que puedes elegir tu propia historia no hay nada que te detenga de ser lo que tu quieras ser</label>
-
-    <div class="mt-4 text-center">
-      <button class="btn btn-medieval" data-bs-toggle="modal" data-bs-target="#libroDragonesModal">Abrir Libro de
-        Dragones</button>
-    </div>
-
-    <!-- Modal Libro de Dragones -->
-    <div class="modal fade" id="libroDragonesModal" tabindex="-1" aria-labelledby="libroDragonesLabel"
-      aria-hidden="true">
-      <div class="modal-dialog modal-xl modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="libroDragonesLabel">Libro de Dragones</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-              aria-label="Cerrar"></button>
+    <!-- FEATURES -->
+    <div class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">El Juego</p>
+          <h2 class="section-title">Características</h2>
+          <div class="title-ornament"><span>⸻</span><i class="fas fa-dragon"></i><span>⸻</span></div>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-globe-americas"></i></div>
+            <h3>Mundo Abierto</h3>
+            <p>Explora libremente el vasto mundo de Eteria, desde las llanuras de Skarn hasta el jardín del Castillo.
+            </p>
           </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-md-4">
-                <div class="dragon-card">
-                  <img src="imgs/dragon1.png" alt="Dragón Fuego" />
-                  <div class="dragon-name">Volcanis</div>
-                  <p>Volcanis es un dragon que habita en la isla ashika este dragon escupe lava es gigantesco y ademas
-                    lanza viento que destroza todo a su paso.</p>
-                </div>
-                <div class="dragon-card">
-                  <img src="imgs/dragon2.png" alt="Dragón Fuego" />
-                  <div class="dragon-name">Lyas</div>
-                  <p>Lyas es un dragon de naturaleza, es muy docil y es muy bueno con las plantas muy fuerte ademas con
-                    sus ataques de naturaleza
-                    , habita principalmente en la isla lisana</p>
-                </div>
-                <div class="dragon-card">
-                  <img src="imgs/dragon3.png" alt="Dragón Fuego" />
-                  <div class="dragon-name">Nereus</div>
-                  <p>Nereus es un dragon de agua que puede moverse por el mar, no puede volar como la mayoria pero puede
-                    moverse mas rapido por el agua,
-                    habita en todo el mar,pricipalmente en la isla salias.</p>
-                </div>
-                <div class="dragon-card">
-                  <img src="imgs/dragon4.png" alt="Dragón Fuego" />
-                  <div class="dragon-name">Leo</div>
-                  <p>leo es un dragon robusto y es perfecto para destruir cosas ya que tiene una cola con una piedra muy
-                    poderoso
-                    es muy util para conseguir recursos habita principalmente en la isla rocastra.</p>
-                </div>
-              </div>
-              <!-- añadir más dragones-->
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-dragon"></i></div>
+            <h3>Doma Dragones</h3>
+            <p>Demuestra tu valía en combate para ganar el respeto de los dragones y forjar un vínculo especial.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-scroll"></i></div>
+            <h3>Tu Historia</h3>
+            <p>Elige tu propio camino. Las decisiones que tomes moldearán el destino de Eteria y sus habitantes.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-cog"></i></div>
+            <h3>Combate RPG</h3>
+            <p>Combina habilidades de dragón con armas forjadas por los mejores herreros de la isla.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+            <h3>PC y Móvil</h3>
+            <p>Disponible para PC. Próximamente en Play Store y App Store para que juegues en cualquier lugar.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-microchip"></i></div>
+            <h3>Accesible</h3>
+            <p>Diseñado para correr en dispositivos modestos. Sin necesidad de una super PC ni consola costosa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARRUSEL -->
+    <div class="carousel-section-wrapper">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Imágenes del Juego</p>
+          <h2 class="section-title">Capturas</h2>
+          <div class="title-ornament"><span>⸻</span><i class="fas fa-camera"></i><span>⸻</span></div>
+        </div>
+        <div id="gameCarousel" class="carousel slide eteria-carousel" data-bs-ride="carousel" data-bs-interval="4000">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="imgs/nat1.png" class="d-block w-100" alt="Eteria - Mundo Natural" />
+              <div class="carousel-caption-eteria">Llanuras de Eteria</div>
+            </div>
+            <div class="carousel-item">
+              <img src="imgs/nat4.png" class="d-block w-100" alt="Eteria - Atardecer" />
+              <div class="carousel-caption-eteria">El camino al Santuario</div>
+            </div>
+            <div class="carousel-item">
+              <img src="imgs/valkar.png" class="d-block w-100" alt="Eteria - Aldea" />
+              <div class="carousel-caption-eteria">Valkar — La Ciudad</div>
+            </div>
+            <div class="carousel-item">
+              <img src="imgs/sabrinafondo2.png" class="d-block w-100" alt="Eteria - Jardín del Castillo" />
+              <div class="carousel-caption-eteria">Jardín del Castillo</div>
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-medieval" data-bs-dismiss="modal">Cerrar</button>
+          <button class="carousel-control-prev" type="button" data-bs-target="#gameCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#gameCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+          <div class="carousel-indicators-eteria">
+            <button type="button" data-bs-target="#gameCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#gameCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#gameCarousel" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#gameCarousel" data-bs-slide-to="3"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===================== EL MUNDO ===================== -->
+  <section id="mundo" class="page-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Explora</p>
+        <h2 class="section-title">El Mundo de Eteria</h2>
+        <div class="title-ornament"><span>⸻</span><i class="fas fa-globe"></i><span>⸻</span></div>
+        <p class="section-desc">Eteria está formada por múltiples regiones, cada una con sus propios dragones, secretos
+          y peligros. Desde las coloridas llanuras de Valkar hasta los oscuros bosques de Norim, el mundo te espera.</p>
+      </div>
+
+      <div class="world-grid">
+
+        <div class="world-card" onclick="openWorldModal('valkar')">
+          <div class="world-card-img-wrap">
+            <img src="imgs/valkar.png" alt="Valkar" />
+            <div class="world-card-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+          </div>
+          <div class="world-card-body">
+            <h3 class="world-name">Valkar</h3>
+            <p>La aldea principal de Valkar. Hogar de Sebastián y punto de partida de la aventura. Rodeada de llanuras
+              llenas de dragones.</p>
+            <span class="world-tag">Aldea Principal</span>
+          </div>
+        </div>
+
+        <div class="world-card" onclick="openWorldModal('skarn')">
+          <div class="world-card-img-wrap">
+            <img src="imgs/nat5.png" alt="Llanura de Skarn" />
+            <div class="world-card-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+          </div>
+          <div class="world-card-body">
+            <h3 class="world-name">Llanura del Ambar</h3>
+            <p>Vasta llanura nombrada en honor a los dragones Amber que la habitan. Es una tierra llena de girasoles y
+              minerales.</p>
+            <span class="world-tag">Región Natural</span>
+          </div>
+        </div>
+
+        <div class="world-card" onclick="openWorldModal('santuario')">
+          <div class="world-card-img-wrap">
+            <img src="imgs/santuario.png" alt="Santuario" />
+            <div class="world-card-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+          </div>
+          <div class="world-card-body">
+            <h3 class="world-name">El Santuario</h3>
+            <p>Un lugar sagrado que no aparece en ningún mapa. Aquí los jóvenes eruditos eligen a su primer dragón
+              compañero.</p>
+            <span class="world-tag">Lugar Sagrado</span>
+          </div>
+        </div>
+
+        <div class="world-card" onclick="openWorldModal('castillo')">
+          <div class="world-card-img-wrap">
+            <img src="imgs/sabrinafondo1.png" alt="Jardín del Castillo" />
+            <div class="world-card-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+          </div>
+          <div class="world-card-body">
+            <h3 class="world-name">Jardín del Castillo</h3>
+            <p>El hermoso jardín del castillo real, hogar de la princesa Sabrina. Un lugar de paz… y de conversaciones
+              que cambian destinos.</p>
+            <span class="world-tag">Castillo Real</span>
+          </div>
+        </div>
+
+        <div class="world-card" onclick="openWorldModal('chirripo')">
+          <div class="world-card-img-wrap">
+            <img src="imgs/monteChirripo.png" alt="Monte Chirripó" />
+            <div class="world-card-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+          </div>
+          <div class="world-card-body">
+            <h3 class="world-name">Monte Chirripó</h3>
+            <p>En la cima de esta montaña vive un sabio anciano que conoce toda la historia de Eteria y sus secretos más
+              profundos.</p>
+            <span class="world-tag">Región Montañosa</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Modal de región -->
+    <div class="eteria-modal" id="worldModal" onclick="closeWorldModal(event)">
+      <div class="eteria-modal-content world-modal-content">
+        <button class="modal-close-btn" onclick="closeWorldModal()"><i class="fas fa-times"></i></button>
+        <img id="worldModalImg" src="" alt="" />
+        <div class="world-modal-body">
+          <span id="worldModalTag" class="world-tag"></span>
+          <h2 id="worldModalTitle"></h2>
+          <p id="worldModalDesc"></p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===================== PERSONAJES ===================== -->
+  <section id="personajes" class="page-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Conoce a</p>
+        <h2 class="section-title">Los Personajes</h2>
+        <div class="title-ornament"><span>⸻</span><i class="fas fa-users"></i><span>⸻</span></div>
+        <p class="section-desc">Cada persona que encuentres en Eteria tiene su propia historia, motivaciones y secretos.
+          Algunos serán aliados, otros quizás algo más.</p>
+      </div>
+
+      <div class="characters-grid">
+
+        <!-- Sebastián -->
+        <div class="character-card protagonist">
+          <div class="character-img-wrap">
+            <div class="character-img-placeholder">
+              <i class="fas fa-user-circle"></i>
+              <p>Imagen próximamente</p>
+            </div>
+            <div class="character-badge">Protagonista</div>
+          </div>
+          <div class="character-body">
+            <h3 class="character-name">Sebastián</h3>
+            <p class="character-role">Hijo del General — Erudito</p>
+            <p class="character-desc">A punto de cumplir 18 años, Sebastián sueña con ser un aventurero y domar todos
+              los dragones de Eteria. Considerado el mejor erudito de su clase, su vida cambiará para siempre el día que
+              elija a su primer compañero dragón.</p>
+            <div class="character-tags">
+              <span>Erudito</span><span>Domador</span><span>Aventurero</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sabrina -->
+        <div class="character-card">
+          <div class="character-img-wrap">
+            <img src="imgs/sabrina.png" alt="Princesa Sabrina" class="character-img" />
+            <div class="character-badge secondary">Princesa</div>
+          </div>
+          <div class="character-body">
+            <h3 class="character-name">Sabrina</h3>
+            <p class="character-role">Princesa — Hija del Rey Roan</p>
+            <p class="character-desc">Inteligente, valiente y con el peso de un reino sobre sus hombros. Sabrina y
+              Sebastián comparten una conexión especial que va más allá de la amistad. Aunque lleva una corona, no deja
+              de sentir el miedo como cualquier persona.</p>
+            <div class="character-tags">
+              <span>Realeza</span><span>Aliada</span><span>Estratega</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Arturo -->
+        <div class="character-card">
+          <div class="character-img-wrap">
+            <img src="imgs/arturo.png" alt="General Arturo" class="character-img">
+            <div class="character-badge accent">General</div>
+          </div>
+          <div class="character-body">
+            <h3 class="character-name">Arturo</h3>
+            <p class="character-role">General del Ejército de Eteria</p>
+            <p class="character-desc">Padre de Sebastián y uno de los guerreros más respetados de Eteria. Compañero del
+              legendario dragón Destructor, un Skarn. Su experiencia y sacrificio son el pilar sobre el que se construye
+              la aventura.</p>
+            <div class="character-tags">
+              <span>General</span><span>Padre</span><span>Domador</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sergio -->
+        <div class="character-card">
+          <div class="character-img-wrap">
+            <img src="imgs/sergio.png" alt="Herrero Sergio" class="character-img">
+          </div>
+          <div class="character-body">
+            <h3 class="character-name">Sergio</h3>
+            <p class="character-role">Herrero de Valkar</p>
+            <p class="character-desc">El mejor herrero de Valkar. Con sus manos forja las armas que defienden a Eteria.
+              No discrimina el material: si lo consigues, él lo convierte en algo extraordinario.</p>
+            <div class="character-tags">
+              <span>Aliado</span><span>Artesano</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Helen -->
+        <div class="character-card">
+          <div class="character-img-wrap">
+            <img src="imgs/helen.png" alt="Vendedora" class="character-img">
+          </div>
+          <div class="character-body">
+            <h3 class="character-name">Helen</h3>
+            <p class="character-role">Comerciante — Tienda de Valkar</p>
+            <p class="character-desc">Dueña de la tienda principal de Valkar. Conoce el valor de cada cosa y sabe
+              siempre lo que necesitas, incluso antes de que tú lo sepas.</p>
+            <div class="character-tags">
+              <span>Aliada</span><span>Comerciante</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rey Roan -->
+        <div class="character-card">
+          <div class="character-img-wrap">
+            <div class="character-img-placeholder">
+              <i class="fas fa-user-circle"></i>
+              <p>Imagen próximamente</p>
+            </div>
+            <div class="character-badge accent">Rey</div>
+          </div>
+          <div class="character-body">
+            <h3 class="character-name">Rey Roan</h3>
+            <p class="character-role">Monarca de Eteria</p>
+            <p class="character-desc">Ha mantenido la paz en Eteria toda su vida. El rey más querido que ha conocido la
+              isla. Pero incluso el reinado más sólido puede temblar cuando Drakmor mueve sus fichas.</p>
+            <div class="character-tags">
+              <span>Realeza</span><span>Aliado</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="coming-soon-note">
+        <i class="fas fa-paint-brush"></i>
+        <p>Los renders de los personajes serán añadidos próximamente. ¡Mantente atento!</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== DRAGONES ===================== -->
+  <section id="dragones" class="page-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Descubre</p>
+        <h2 class="section-title">Los Dragones de Eteria</h2>
+        <div class="title-ornament"><span>⸻</span><i class="fas fa-dragon"></i><span>⸻</span></div>
+        <p class="section-desc">Cada dragón en Eteria es único. Algunos son compañeros fieles, otros son guardianes de
+          territorios ancestrales. Aprende a conocerlos para poder domarlos.</p>
+      </div>
+
+      <!-- Filtros -->
+      <div class="dragon-filters">
+        <button class="filter-btn active" onclick="filterDragons('all', this)">Todos</button>
+        <!--
+        <button class="filter-btn" onclick="filterDragons('compañero', this)">Compañeros</button>
+        <button class="filter-btn" onclick="filterDragons('naturaleza', this)">Naturaleza</button>
+        <button class="filter-btn" onclick="filterDragons('agua', this)">Agua</button>
+        <button class="filter-btn" onclick="filterDragons('fuego', this)">Fuego</button>
+        <button class="filter-btn" onclick="filterDragons('oscuro', this)">Oscuro</button>
+        -->
+      </div>
+
+      <div class="dragons-grid" id="dragonsGrid">
+
+        <!-- Alaska -->
+        <div class="dragon-card-new" data-type="compañero">
+          <div class="dragon-img-wrap">
+            <img src="imgs/alaska.png" alt="Alaska" class="dragon-img-real" />
+            <div class="dragon-element ice"><i class="fas fa-snowflake"></i> Hielo</div>
+          </div>
+          <div class="dragon-card-body">
+            <h3 class="dragon-name-new">Alaska <span class="dragon-species"></span></h3>
+            <!--el span es para poner otro nombre en pequeño y oscuro-->
+            <p class="dragon-habitat"><i class="fas fa-map-marker-alt"></i> Norim, llanura alada</p>
+            <p class="dragon-desc-new">Alaska es un dragón extremadamente poderoso sus ataques de hielo son letales lo
+              que lo vuelve difícil de encontrar además de lo difícil que son de encontrar lo vuelve uno de los dragones
+              mas prestigiosos. </p>
+            <div class="dragon-stats">
+              <div class="stat"><span class="stat-label">Fuerza</span>
+                <div class="stat-bar">
+                  <div class="stat-fill" style="width:95%"></div>
+                </div>
+              </div>
+              <div class="stat"><span class="stat-label">Velocidad</span>
+                <div class="stat-bar">
+                  <div class="stat-fill" style="width:70%"></div>
+                </div>
+              </div>
+              <div class="stat"><span class="stat-label">Rareza</span>
+                <div class="stat-bar">
+                  <div class="stat-fill" style="width:100%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skarn -->
+        <div class="dragon-card-new" data-type="compañero">
+          <div class="dragon-img-wrap">
+            <img src="/imgs/skarn.png" alt="Skarn" class="dragon-img-real" />
+            <div class="dragon-element fire"><i class="fas fa-fire"></i> Fuego</div>
+          </div>
+          <div class="dragon-card-body">
+            <h3 class="dragon-name-new">Skarn <span class="dragon-species"></span></h3>
+            <p class="dragon-habitat"><i class="fas fa-map-marker-alt"></i> Llanura de Skarn</p>
+            <p class="dragon-desc-new">Skarn es un dragón gigantesco se caracteriza por sus fuerza de ataque y su
+              vitalidad, además es un poco lento.</p>
+            <div class="dragon-stats">
+              <div class="stat"><span class="stat-label">Fuerza</span>
+                <div class="stat-bar">
+                  <div class="stat-fill" style="width:95%"></div>
+                </div>
+              </div>
+              <div class="stat"><span class="stat-label">Velocidad</span>
+                <div class="stat-bar">
+                  <div class="stat-fill" style="width:15%"></div>
+                </div>
+              </div>
+              <div class="stat"><span class="stat-label">Rareza</span>
+                <div class="stat-bar">
+                  <div class="stat-fill" style="width:85%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ancreus -->
+        <div class="dragon-card-new" data-type="fuego">
+          <div class="dragon-img-wrap">
+            <img src="imgs/ancreus.png" alt="Ancreus" class="dragon-img-real" />
+            <div class="dragon-element poison"><i class="fas fa-fire"></i> Veneno</div>
+          </div>
+          <div class="dragon-card-body">
+            <h3 class="dragon-name-new">Ancreus</h3>
+            <p class="dragon-habitat"><i class="fas fa-map-marker-alt"></i> Shihima, Llanura de Ancreus</p>
+            <p class="dragon-desc-new">Ancreus es un dragón arisco difícil de domar pero también excelente en combate
+              sus dos colas con aguijones venenosos lo vuelve fuerte en combate.</p>
+            <div class="dragon-stats">
+              <div class="stat"><span class="stat-label">Fuerza</span>
+                <div class="stat-bar">
+                  <div class="stat-fill" style="width:80%"></div>
+                </div>
+              </div>
+              <div class="stat"><span class="stat-label">Velocidad</span>
+                <div class="stat-bar">
+                  <div class="stat-fill" style="width:45%"></div>
+                </div>
+              </div>
+              <div class="stat"><span class="stat-label">Rareza</span>
+                <div class="stat-bar">
+                  <div class="stat-fill" style="width:95%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- amber -->
+        <div class="dragon-card-new" data-type="naturaleza">
+          <div class="dragon-img-wrap">
+            <img src="imgs/amber.png" alt="Arenisco" class="dragon-img-real" />
+            <div class="dragon-element ambar"><i class="fas fa-ambar"></i> Ambar</div>
+          </div>
+          <div class="dragon-card-body">
+            <h3 class="dragon-name-new">Amber</h3>
+            <p class="dragon-habitat"><i class="fas fa-map-marker-alt"></i> Valkar, Llanura del Ámbar</p>
+            <p class="dragon-desc-new">Amber es un dragón tranquilo pero muy territorial en general es muy amigable
+              siempre esta cerca de una reserva de ámbar.</p>
+            <div class="dragon-stats">
+              <div class="stat"><span class="stat-label">Fuerza</span>
+                <div class="stat-bar">
+                  <div class="stat-fill" style="width:70%"></div>
+                </div>
+              </div>
+              <div class="stat"><span class="stat-label">Velocidad</span>
+                <div class="stat-bar">
+                  <div class="stat-fill" style="width:95%"></div>
+                </div>
+              </div>
+              <div class="stat"><span class="stat-label">Rareza</span>
+                <div class="stat-bar">
+                  <div class="stat-fill" style="width:60%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Arenisco -->
+        <div class="dragon-card-new" data-type="naturaleza">
+          <div class="dragon-img-wrap">
+            <img src="imgs/arenisco.png" alt="Arenisco" class="dragon-img-real" />
+            <div class="dragon-element earth"><i class="fas fa-mountain"></i> Arena</div>
+          </div>
+          <div class="dragon-card-body">
+            <h3 class="dragon-name-new">Arenisco</h3>
+            <p class="dragon-habitat"><i class="fas fa-map-marker-alt"></i> Desierto de Kharum, paso de Arenisco</p>
+            <p class="dragon-desc-new">Arenisco es un dragón pequeño bastante rápido, es difícil de encontrar siempre se
+              esconde entre las rocas</p>
+            <div class="dragon-stats">
+              <div class="stat"><span class="stat-label">Fuerza</span>
+                <div class="stat-bar">
+                  <div class="stat-fill" style="width:60%"></div>
+                </div>
+              </div>
+              <div class="stat"><span class="stat-label">Velocidad</span>
+                <div class="stat-bar">
+                  <div class="stat-fill" style="width:80%"></div>
+                </div>
+              </div>
+              <div class="stat"><span class="stat-label">Rareza</span>
+                <div class="stat-bar">
+                  <div class="stat-fill" style="width:55%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dragón Oscuro (misterio) -->
+        <div class="dragon-card-new mystery" data-type="oscuro">
+          <div class="dragon-img-wrap">
+            <div class="dragon-img-placeholder dark">
+              <i class="fas fa-question-circle"></i>
+              <p>???</p>
+            </div>
+            <div class="dragon-element dark"><i class="fas fa-skull"></i> Oscuro</div>
+          </div>
+          <div class="dragon-card-body">
+            <h3 class="dragon-name-new">??? <span class="dragon-species">(Drakmor)</span></h3>
+            <p class="dragon-habitat"><i class="fas fa-map-marker-alt"></i> Origen desconocido</p>
+            <p class="dragon-desc-new">Los dragones del ejército de Drakmor no son normales. Poseen un aura extraña y al
+              ser derrotados no mueren: se convierten en una nube oscura y desaparecen. Nadie sabe qué son realmente...
+            </p>
+            <div class="dragon-stats">
+              <div class="stat"><span class="stat-label">Fuerza</span>
+                <div class="stat-bar">
+                  <div class="stat-fill mystery-fill" style="width:0%"></div>
+                </div>
+              </div>
+              <div class="stat"><span class="stat-label">Velocidad</span>
+                <div class="stat-bar">
+                  <div class="stat-fill mystery-fill"></div>
+                </div>
+              </div>
+              <div class="stat"><span class="stat-label">Rareza</span>
+                <div class="stat-bar">
+                  <div class="stat-fill mystery-fill" style="width:100%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="coming-soon-note">
+        <i class="fas fa-dragon"></i>
+        <p>Más dragones serán revelados conforme avance el desarrollo.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== HISTORIA ===================== -->
+  <section id="historia" class="page-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Acto I</p>
+        <h2 class="section-title">El Inicio del Fin</h2>
+        <div class="title-ornament"><span>⸻</span><i class="fas fa-book-open"></i><span>⸻</span></div>
+      </div>
+
+      <div class="historia-layout">
+        <div class="historia-book">
+          <div class="book-page">
+            <div class="book-drop-cap">E</div>
+            <p>teria es un lugar lleno de fantasía, un mundo de paz donde dragones y humanos conviven desde tiempos
+              inmemoriales. En esta isla mágica, los jóvenes eruditos tienen el privilegio de elegir a su primer
+              compañero dragón al cumplir los dieciocho años, forjando un vínculo que durará toda la vida.</p>
+
+            <p>Sebastián es el hijo del General Arturo, uno de los guerreros más respetados de Valkar. A punto de
+              cumplir dieciocho años, sueña con convertirse en aventurero y domar todos los tipos de dragones que
+              habitan en Eteria. Considerado el mejor erudito de su clase, ese día especial está a punto de llegar.</p>
+
+            <div class="historia-divider"><i class="fas fa-dragon"></i></div>
+
+            <p>Al despertar, su padre lo llama para que baje a desayunar. Le encomienda algunas tareas del día: ir donde
+              Sergio el herrero por una nueva espada, comprar en la tienda de Helen y recoger unos hongos cerca de las
+              estatuas de piedra para preparar una brocheta en la fogata. También le menciona que la princesa Sabrina lo
+              estaba buscando y que lo espera en el jardín del castillo.</p>
+
+            <p>Tras completar sus encomiendas, Sebastián se dirige al jardín. Allí encuentra a Sabrina, y entre los dos
+              surge una conversación sobre el gran día que se aproxima. Se nota una conexión profunda entre ellos, algo
+              que va más allá de la amistad. Pero Sabrina también le confiesa algo que la preocupa: escuchó a su padre,
+              el Rey Roan, hablar con el General Arturo sobre unos campamentos de cazadores de dragones en Valkar. Los
+              vio serios, preocupados. Nunca los había visto así.</p>
+
+            <!--
+            <p class="historia-quote">"Tranquila. No estamos en guerra aún, y estoy seguro de que la paz continuará en
+              Eteria. El rey Roan ha mantenido la paz toda su vida. No va a caer ahora."</p>
+            -->
+
+            <p>El sol comienza a descender. Sebastián vuelve a casa emocionado, con el corazón latiendo fuerte por el
+              día que está por venir.</p>
+
+            <div class="historia-divider"><i class="fas fa-dragon"></i></div>
+
+            <p>A la mañana siguiente, padre e hijo emprenden juntos el camino hacia el Santuario: una isla sagrada que
+              no aparece en ningún mapa. En el recorrido, Arturo le habla a Sebastián sobre el mundo, sobre la Llanura
+              de Skarn y sobre el Monte Chirripó, donde habita un sabio que conoce la historia completa de Eteria.</p>
+
+            <p>Al llegar al Santuario, Sebastián ve ante él a todo tipo de dragones jóvenes, listos para la aventura.
+              Elige a un Alaska, una criatura de poder extraordinario, difícil de encontrar y más difícil de domar. Con
+              la ayuda de Destructor, el imponente Skarn de su padre, Sebastián pelea para ganarse el respeto del
+              dragón. Cuando Alaska está debilitado, es el momento: Sebastián le ofrece el salmón que compró en la
+              tienda de Helen, y logra el vínculo. Le pone por nombre <em>Nevado</em>.</p>
+
+            <p>Arturo le enseña a volar con Nevado. Los dos se elevan sobre Eteria, libres. Pero cuando se acercan a
+              Valkar... algo está terriblemente mal. Hay humo. Hay fuego. Valkar está bajo ataque.</p>
+
+            <div class="historia-divider dark"><i class="fas fa-skull"></i></div>
+
+            <p>El ejército de <strong>Drakmor</strong> está destruyendo la ciudad. Los cazadores de dragones llevan
+              consigo criaturas extrañas, con un aura oscura que no parece natural. En el camino, un rancho está siendo
+              atacado. Arturo entra en combate. Le ordena a Sebastián que se esconda.</p>
+
+            <p>Arturo logra vencer, pero a un precio terrible. Las heridas son demasiado graves. Sebastián sale de su
+              escondite y corre a su lado, pero no hay nada que pueda hacerse.</p>
+
+            <p>Con sus últimas fuerzas, Arturo le habla a su hijo. Le dice que debe salvar a Valkar. Que debe emprender
+              un viaje a las otras regiones, pedir ayuda, reunir un ejército. Que debe encontrar al sabio del Monte
+              Chirripó y contarle sobre el ataque. Que solo reuniendo a los dragones legendarios de cada región y a los
+              ejércitos de las aldeas podrán salvar todo lo que conocen.</p>
+
+            <p class="historia-quote final">"Debes salvarlos a todos."</p>
+
+            <div class="acto-badge">
+              <span>Acto II — En Desarrollo</span>
+              <p>La Guerra de Valkar continúa...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="historia-sidebar">
+          <div class="sidebar-card">
+            <h4><i class="fas fa-map"></i> El Mundo</h4>
+            <ul>
+              <li>Valkar</li>
+              <li>Shihima</li>
+              <li>Cartago</li>
+              <li>Nyru</li>
+              <li>Drakmor</li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h4><i class="fas fa-users"></i> Personajes clave</h4>
+            <ul>
+              <li>Sebastián — El protagonista</li>
+              <li>Arturo — Su padre, el General</li>
+              <li>Sabrina — La Princesa</li>
+              <li>El Sabio del Chirripó</li>
+              <li>Roan — El rey</li>
+            </ul>
+          </div>
+          <div class="sidebar-card danger">
+            <h4><i class="fas fa-skull"></i> La Amenaza</h4>
+            <p>El Imperio de <strong>Drakmor</strong> ha lanzado su ataque. Sus dragones no son normales: poseen un aura
+              oscura y al caer se disuelven en humo. Nadie sabe qué son. Nadie sabe cuántos hay.</p>
+          </div>
+          <div class="sidebar-card jardin">
+            <img src="imgs/sabrinafondo2.png" alt="Jardín del Castillo" />
+            <p class="caption">El Jardín del Castillo — donde los destinos se cruzan</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CRÉDITOS -->
-  <section id="creditos" class="container text-center mb-5">
-    <h2 class="medieval-title mb-3">Créditos</h2>
-    <p>Desarrollado por Sebastian Aguilar Quesada.</p>
-    <p>Desarrollado por Keneth barquero Cubillo</p>
-    <a href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=Kv6hD1vVZUaV51OlaSfYM9OMAo64_tlMnvQJeB1EG01UQlcwNUxWU0dCRjVFMVNMQ1pEWjNPNTMyMC4u&origin=lprLink&route=shorturl"
-      target="_blank" rel="noopener">Contribuye con el desarrollo de Dragones de Valkar danos tus comentarios en esta
-      encuesta</a>
-    <h2 class="medieval-title mb-3 text-center">Nuestra Historia</h2>
-    <label id="historia-text" rows="8">El juego fue Desarrollado con el fin de participar en la competicion expotecnica
-      pero mas que eso para llegar a ser un juego competitvo nuestra inspiracion son todas las personas que a corta edad
-      y solos contra el mundo lograron cosas increibles y queremos lo mismo somos un equipo de desarrollo pequeño pero
-      esperamos poder llegar a cosas grandes el proyecto fue empezado el 15 de noviembre de 2024 y se llevan mas de
-      12mil lineas de codigo ademas de muchas horas de trabajo, todo esto hecho por nuestro equipo de trabajo que como
-      unica educacion tiene python basico de consola lo cual no es para nada lo que se necesita para hacer un
-      videojuego, se requiere aprender una infinifad de tecnologias que nuestro equipo aprendio por su cuenta para poder
-      desarrollar este juego todo con el fin de dar inspiracion a otras personas para que se empeñen en sus proyectos
-      personales asi como muchas personas nos inspiraron a nostros, esta es nuestra Historia y apenas comienza. </label>
+  <!-- ===================== GALERÍA ===================== -->
+  <section id="galeria" class="page-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Imágenes</p>
+        <h2 class="section-title">Galería</h2>
+        <div class="title-ornament"><span>⸻</span><i class="fas fa-images"></i><span>⸻</span></div>
+      </div>
+
+      <!-- Filtros de galería -->
+      <div class="gallery-filters">
+        <button class="filter-btn active" onclick="filterGallery('all', this)">Todo</button>
+        <button class="filter-btn" onclick="filterGallery('naturaleza', this)">Naturaleza</button>
+        <button class="filter-btn" onclick="filterGallery('aldea', this)">Aldea</button>
+        <button class="filter-btn" onclick="filterGallery('castillo', this)">Jardín del Castillo</button>
+        <button class="filter-btn" onclick="filterGallery('gameplay', this)">Gameplay</button>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Naturaleza -->
+        <div class="gallery-item" data-cat="naturaleza" onclick="openLightbox(this)">
+          <img src="imgs/nat1.png" alt="Campo de flores" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>Campo de flores</span></div>
+        </div>
+        <div class="gallery-item" data-cat="naturaleza" onclick="openLightbox(this)">
+          <img src="imgs/nat2.png" alt="Campo de flores" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>Campo de flores</span></div>
+        </div>
+        <div class="gallery-item" data-cat="naturaleza" onclick="openLightbox(this)">
+          <img src="imgs/nat3.png" alt="El estanque" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>El estanque</span></div>
+        </div>
+        <div class="gallery-item" data-cat="naturaleza" onclick="openLightbox(this)">
+          <img src="imgs/nat4.png" alt="Camino al santuario" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>Camino al santuario</span></div>
+        </div>
+        <div class="gallery-item" data-cat="naturaleza" onclick="openLightbox(this)">
+          <img src="imgs/nat5.png" alt="Vista panorámica" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>Vista panorámica</span></div>
+        </div>
+        <div class="gallery-item" data-cat="naturaleza" onclick="openLightbox(this)">
+          <img src="imgs/aldea5.png" alt="Noche en Eteria" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>Noche en Eteria</span></div>
+        </div>
+        <div class="gallery-item" data-cat="naturaleza" onclick="openLightbox(this)">
+          <img src="imgs/nat10.png" alt="Girasoles" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>Campo de girasoles</span></div>
+        </div>
+        <div class="gallery-item" data-cat="naturaleza" onclick="openLightbox(this)">
+          <img src="imgs/bosque.png" alt="Bosque de Eteria" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>Bosque de Eteria</span></div>
+        </div>
+        <div class="gallery-item" data-cat="naturaleza" onclick="openLightbox(this)">
+          <img src="imgs/cantera.png" alt="La cantera" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>La Cantera</span></div>
+        </div>
+        <!-- Aldea -->
+        <div class="gallery-item" data-cat="aldea" onclick="openLightbox(this)">
+          <img src="imgs/aldea6.png" alt="La aldea de noche" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>La aldea de noche</span></div>
+        </div>
+        <div class="gallery-item" data-cat="aldea" onclick="openLightbox(this)">
+          <img src="imgs/aldea4.png" alt="Una noche en valkar" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>Valkar de noche</span></div>
+        </div>
+        <div class="gallery-item" data-cat="aldea" onclick="openLightbox(this)">
+          <img src="imgs/valkar.png" alt="Vista de la aldea" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>Vista de Valkar</span></div>
+        </div>
+        <div class="gallery-item" data-cat="aldea" onclick="openLightbox(this)">
+          <img src="imgs/aldeana1.png" alt="Aldeana" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>aldeana</span></div>
+        </div>
+        <div class="gallery-item" data-cat="aldea" onclick="openLightbox(this)">
+          <img src="imgs/aldeana2.png" alt="Aldeana" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>aldeana</span></div>
+        </div>
+        <div class="gallery-item" data-cat="aldea" onclick="openLightbox(this)">
+          <img src="imgs/aldeana3.png" alt="Aldeana" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>aldeana</span></div>
+        </div>
+        <!-- Castillo -->
+        <div class="gallery-item featured" data-cat="castillo" onclick="openLightbox(this)">
+          <img src="imgs/sabrinafondo1.png" alt="Jardín del Castillo" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>Jardín del Castillo</span></div>
+        </div>
+        <div class="gallery-item" data-cat="castillo" onclick="openLightbox(this)">
+          <img src="imgs/sabrinafondo2.png" alt="Jardín del Castillo 2" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>Jardín del Castillo</span></div>
+        </div>
+        <div class="gallery-item" data-cat="castillo" onclick="openLightbox(this)">
+          <img src="imgs/sabrinafondo3.png" alt="Jardín del Castillo 3" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>Jardín del Castillo</span></div>
+        </div>
+        <!-- Gameplay -->
+        <div class="gallery-item" data-cat="gameplay" onclick="openLightbox(this)">
+          <img src="imgs/cocina1.png" alt="Sistema de cocina" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>Sistema de Cocina</span></div>
+        </div>
+        <div class="gallery-item" data-cat="gameplay" onclick="openLightbox(this)">
+          <img src="imgs/tienda2.png" alt="Sistema tienda" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>Sistema tienda</span></div>
+        </div>
+        <div class="gallery-item" data-cat="gameplay" onclick="openLightbox(this)">
+          <img src="imgs/tienda3.png" alt="Sistema tienda" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>Sistema tienda</span></div>
+        </div>
+        <div class="gallery-item" data-cat="gameplay" onclick="openLightbox(this)">
+          <img src="imgs/ride.png" alt="montando dragon" loading="lazy" />
+          <div class="gallery-overlay"><i class="fas fa-expand"></i><span>Montado de dragon</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <button class="lightbox-close"><i class="fas fa-times"></i></button>
+      <button class="lightbox-prev" onclick="lightboxNav(-1, event)"><i class="fas fa-chevron-left"></i></button>
+      <button class="lightbox-next" onclick="lightboxNav(1, event)"><i class="fas fa-chevron-right"></i></button>
+      <img id="lightboxImg" src="" alt="" />
+      <p id="lightboxCaption"></p>
+    </div>
   </section>
 
-  <!-- Botón volver arriba -->
-  <button id="backToTop" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+  <!-- ===================== CRÉDITOS ===================== -->
+  <section id="creditos" class="page-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">El Equipo</p>
+        <h2 class="section-title">Créditos</h2>
+        <div class="title-ornament"><span>⸻</span><i class="fas fa-star"></i><span>⸻</span></div>
+      </div>
 
-  <footer class="text-center mt-5">
-    <p>© 2025 Dragones de Valkar. Todos los derechos reservados.</p>
-    <a href="https://www.tiktok.com/@mythic.game" target="_blank" rel="noopener">Página De TikTok</a>
-    <a href="https://www.instagram.com/mythic_games.mg/" target="_blank" rel="noopener">Instagram</a>
+      <div class="credits-layout">
+
+        <div class="team-section">
+          <h3 class="credits-sub">Equipo de Desarrollo</h3>
+          <div class="team-cards">
+            <div class="team-card">
+              <div class="team-avatar"><i class="fas fa-code"></i></div>
+              <h4>Sebastian Aguilar Quesada</h4>
+              <p>Desarrollo — programacion y diseño grafico</p>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar"><i class="fas fa-file"></i></div>
+              <h4>Keneth Barquero Cubillo</h4>
+              <p>Documentacion</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="nuestra-historia-section">
+          <h3 class="credits-sub">Nuestra Historia</h3>
+          <div class="historia-text-block">
+            <p>El juego fue desarrollado con el fin de participar en la competición ExpoTécnica, pero más que eso, para
+              llegar a ser un juego competitivo. Nuestra inspiración son todas las personas que a corta edad y solos
+              contra el mundo lograron cosas increíbles, y queremos lo mismo.</p>
+            <p>Somos un equipo de desarrollo pequeño, pero esperamos poder llegar a cosas grandes. El proyecto comenzó
+              el 15 de noviembre de 2024, y llevamos más de 28,000 líneas de código además de muchas horas de trabajo.
+            </p>
+            <p>Todo esto fue hecho por nuestro equipo, que como única educación formal tiene Python básico de consola —
+              lo cual no es para nada lo que se necesita para hacer un videojuego. Se requiere aprender una infinidad de
+              tecnologías que nuestro equipo aprendió por su cuenta, todo esto con el fin de inspirar a otras personas para que se
+              empeñen en sus proyectos personales, así como muchas personas nos inspiraron a nosotros.</p>
+            <p class="historia-final"><em>Esta es nuestra historia, y apenas comienza.</em></p>
+          </div>
+        </div>
+
+        <div class="feedback-section">
+          <h3 class="credits-sub">Apoya el Proyecto</h3>
+          <p>Tu opinión es fundamental para el desarrollo de Eteria. Danos tu retroalimentación y sé parte de la
+            historia.</p>
+          <a href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=Kv6hD1vVZUaV51OlaSfYM9OMAo64_tlMnvQJeB1EG01UQlcwNUxWU0dCRjVFMVNMQ1pEWjNPNTMyMC4u&origin=lprLink&route=shorturl"
+            target="_blank" rel="noopener" class="btn-eteria-primary">
+            <i class="fas fa-comment-alt"></i> Completar Encuesta
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTÓN VOLVER ARRIBA -->
+  <button id="backToTop" title="Volver arriba" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img src="imgs/logo1.jpg" alt="Eteria" />
+          <span>Eteria</span>
+        </div>
+        <p class="footer-tagline">Un mundo de paz donde dragones y humanos conviven.</p>
+        <div class="footer-links">
+          <a href="https://www.tiktok.com/@mythic.game" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i>
+            TikTok</a>
+          <a href="https://www.instagram.com/mythic_games.mg/" target="_blank" rel="noopener"><i
+              class="fab fa-instagram"></i> Instagram</a>
+          <a href="https://drive.google.com/uc?export=download&id=1UA3DSQfFFxGYNhDPKsEguJf7kkUTbz_n" download><i
+              class="fas fa-download"></i> Descargar Beta</a>
+        </div>
+        <p class="footer-copy">© 2026 Eteria — Mythic Games. Todos los derechos reservados.</p>
+      </div>
+    </div>
   </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <audio id="clickSound" src="https://freesound.org/data/previews/250/250629_4486188-lq.mp3" preload="auto"></audio>
-
-  <script>
-    // Función para mostrar la sección seleccionada
-    function showSection(id) {
-      // Ocultar todas las secciones y headers
-      const sections = document.querySelectorAll('section, header');
-      sections.forEach(s => {
-        s.classList.remove('active');
-      });
-
-      // Activar la sección solicitada
-      const target = document.getElementById(id);
-      if (target) {
-        target.classList.add('active');
-      }
-
-      // Actualizar el estado activo en el navbar
-      const navLinks = document.querySelectorAll('.nav-link');
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.textContent.trim().toLowerCase() === id) {
-          link.classList.add('active');
-        }
-      });
-
-      // Cerrar menú en móvil si está abierto
-      const navbarCollapse = document.getElementById('navbarNav');
-      if (navbarCollapse.classList.contains('show')) {
-        new bootstrap.Collapse(navbarCollapse).hide();
-        document.querySelector('.navbar-toggler').classList.add('collapsed');
-      }
-    }
-
-    // Sonido al cambiar sección
-    function playSound() {
-      const sound = document.getElementById('');
-      if (sound) {
-        sound.currentTime = 0;
-        sound.play();
-      }
-    }
-
-    // Botón volver arriba
-    const backToTopBtn = document.getElementById('backToTop');
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        backToTopBtn.style.display = 'block';
-      } else {
-        backToTopBtn.style.display = 'none';
-      }
-    });
-
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Animar menú hamburguesa con toggle clases
-    const toggler = document.querySelector('.navbar-toggler');
-    toggler.addEventListener('click', () => {
-      toggler.classList.toggle('collapsed');
-    });
-
-    // Partículas decorativas tipo magia
-    const canvas = document.querySelector('.particles');
-    const ctx = canvas.getContext('2d');
-    let particlesArray = [];
-    let w, h;
-
-    function initCanvas() {
-      w = window.innerWidth;
-      h = window.innerHeight;
-      canvas.width = w;
-      canvas.height = h;
-    }
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * w;
-        this.y = Math.random() * h;
-        this.size = Math.random() * 3 + 1;
-        this.speedX = (Math.random() - 0.5) * 0.5;
-        this.speedY = (Math.random() - 0.5) * 0.5;
-        this.alpha = Math.random();
-      }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x < 0 || this.x > w) this.speedX *= -1;
-        if (this.y < 0 || this.y > h) this.speedY *= -1;
-      }
-      draw() {
-        ctx.save();
-        ctx.globalAlpha = this.alpha;
-        ctx.fillStyle = '#f1c27d';
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
-      }
-    }
-
-    function initParticles() {
-      particlesArray = [];
-      for (let i = 0; i < 100; i++) {
-        particlesArray.push(new Particle());
-      }
-    }
-
-    function animateParticles() {
-      ctx.clearRect(0, 0, w, h);
-      particlesArray.forEach(p => {
-        p.update();
-        p.draw();
-      });
-      requestAnimationFrame(animateParticles);
-    }
-
-    window.addEventListener('resize', () => {
-      initCanvas();
-      initParticles();
-    });
-
-    // Inicializar todo
-    initCanvas();
-    initParticles();
-    animateParticles();
-
-    // Al cargar, mostrar sección principal
-    document.addEventListener('DOMContentLoaded', () => {
-      showSection('principal');
-    });
-
-    document.getElementById('contactForm').addEventListener('submit', e => {
-      e.preventDefault();
-      alert('Gracias por tu mensaje. Pronto te responderemos.');
-      e.target.reset();
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
